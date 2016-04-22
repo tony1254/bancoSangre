@@ -25,8 +25,17 @@ class PasswordController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    /*public function __construct()
     {
         $this->middleware('guest');
+    }*/
+   public function __construct( )
+    {
+       
+       
+        $this->subject = 'Link para Recuperar tu contraseña';
+        $this->middleware('guest');
     }
+
+
 }
