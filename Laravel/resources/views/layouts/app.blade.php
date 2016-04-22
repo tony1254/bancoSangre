@@ -5,7 +5,7 @@
     
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>Laravel</title>
+    <title>Bannco de Sangre</title>
 <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       
@@ -80,7 +80,7 @@ a.nounderline:link
                           
                        <a class="brand-logo" href="{{ url('/') }}">
                       <h6>
-                    <span class="fa-stack fa-lg  fa-2x ">
+                    <span class="fa-stack fa-lg  fa-1x ">
                       <i class="fa fa-archive fa-stack-2x "></i>
                       <i class="fa fa-tint fa-stack-2x red-text text-accent-4"></i>
 
