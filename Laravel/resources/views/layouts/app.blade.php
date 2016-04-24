@@ -35,7 +35,7 @@ a.nounderline:link
           <li><a class="nounderline grey-text text-lighten-5" href="#2!">two</a></li>
           <li class="divider grey-text text-lighten-5"></li>
           <li><a class="nounderline grey-text text-lighten-5" href="#3!">three</a></li> -->
-          <li><a href="{{ url('/logout') }}" class="grey-text text-lighten-5 " type="button"><i class="fa fa-btn fa-sign-out "></i>Logout</a></li>
+          <li><a href="{{ url('/logout') }}" class="grey-text text-lighten-5 " type="button"><i class="fa fa-btn fa-sign-out "></i>Cerrar sesion</a></li>
         </ul>
 
              
@@ -125,7 +125,7 @@ a.nounderline:link
                             </a>
 
                             <ul class="dropdown-menu  blue darken-4" role="menu">
-                                <li><a href="{{ url('/logout') }}" class="grey-text text-lighten-5"><i class="fa fa-btn fa-sign-out "></i>Logout</a></li>
+                                <li><a href="{{ url('/logout') }}" class="grey-text text-lighten-5"><i class="fa fa-btn fa-sign-out "></i>Cerrar Sesion</a></li>
                             </ul>
                         </li>
                     @endif
