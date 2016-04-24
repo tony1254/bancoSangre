@@ -35,7 +35,7 @@ a.nounderline:link
           <li><a class="nounderline grey-text text-lighten-5" href="#2!">two</a></li>
           <li class="divider grey-text text-lighten-5"></li>
           <li><a class="nounderline grey-text text-lighten-5" href="#3!">three</a></li> -->
-          <li><a href="{{ url('/logout') }}" class="grey-text text-lighten-5"><i class="fa fa-btn fa-sign-out "></i>Logout</a></li>
+          <li><a href="{{ url('/logout') }}" class="grey-text text-lighten-5 " type="button"><i class="fa fa-btn fa-sign-out "></i>Logout</a></li>
         </ul>
 
              
@@ -46,7 +46,8 @@ a.nounderline:link
     <div class="nav-wrapper blue darken-4" style="display: ">
       <ul class="side-nav  blue darken-4 " id="mobile">
         <li><a class="nounderline grey-text text-lighten-5" href="#">Espacio</a></li>
-        
+        <li><a class="nounderline grey-text text-lighten-5 " href="{{ url('/home') }}"> Banco de Sangre</a></li>
+
          @if (Auth::guest())
         <li><a class="nounderline grey-text text-lighten-5 "href="{{ url('/login') }}">Login</a></li>
         <li><a class="nounderline grey-text text-lighten-5"href="{{ url('/register') }}">Register</a></li>
@@ -100,7 +101,7 @@ a.nounderline:link
 
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
+                <!-- Left Side Of Navbar NORMAL-->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/') }}"> </a></li>
                 </ul>
@@ -111,7 +112,7 @@ a.nounderline:link
                     <li><a href="{{ url('/home') }}"> Banco de Sangre</a></li>
                 </ul>
 
-                <!-- Right Side Of Navbar -->
+                <!-- Right Side Of Navbar NORMAL-->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
