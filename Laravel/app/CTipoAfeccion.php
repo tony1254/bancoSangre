@@ -4,9 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CRol extends Model
+class CTipoAfeccion extends Model
 {
-	  protected $table= 'c_rols';
-    
     //
 }

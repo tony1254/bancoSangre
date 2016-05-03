@@ -4,9 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CRol extends Model
+class CSexo extends Model
 {
-	  protected $table= 'c_rols';
-    
+	  protected $table= 'c_sexo';
     //
 }

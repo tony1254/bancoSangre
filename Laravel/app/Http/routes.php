@@ -12,27 +12,42 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	if(Auth::guest()){
+    	return view('welcome');
+    }else{
+            return redirect()->to('admin');
+        }
 });
 
 
 Route::auth();
 
-// Route::get('/registro', function () {
-// 	if(Auth::guest()){
-//     return view('welcome');
 
-// }else{
 
-// return view('auth/register');
-// }
-    
-// });
 
-// Route::auth();
 // if(Auth::guest()){
 // Route::get('/register',  function () {
 //     return view('welcome');
 // });
 // }
 Route::get('/home', 'HomeController@index');
+
+Route::group(['middleware'=>['auth','administrador'],'prefix'=>'admin'],function(){
+	Route::get('/', 'usuarios\usuariosController@index');	
+	Route::post('/usuarios/{id}/edit', 'usuarios\usuariosController@guardar');	
+	Route::resource('usuarios', 'usuarios\usuariosController');
+	//Route::resource('persona', 'PersonaController');
+});
+Route::group(['middleware'=>['auth','encargado'],'prefix'=>'encargado'],function(){
+	Route::post('/usuarios/{id}/edit', 'usuarios\usuariosController@guardar');	
+	Route::post('/usuarios/{id}/edit', 'usuarios\usuariosController@guardar');	
+	Route::resource('usuarios', 'usuarios\usuariosController');
+	Route::get('/', 'usuarios\usuariosController@index');
+	//Route::resource('persona', 'PersonaController');
+});
+Route::group(['middleware'=>['auth','usuario'],'prefix'=>'usuario'],function(){
+	Route::get('/', 'usuarios\usuariosController@index');	
+	Route::post('/usuarios/{id}/edit', 'usuarios\usuariosController@guardar');	
+	Route::resource('usuarios', 'usuarios\usuariosController');
+	//Route::resource('persona', 'PersonaController');
+});

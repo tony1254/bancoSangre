@@ -4,9 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CRol extends Model
+class UAfeccion extends Model
 {
-	  protected $table= 'c_rols';
-    
     //
 }
