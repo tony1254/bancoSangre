@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- {{$color_main="blue darken-4"}} -->
 <head>
     <meta charset="utf-8">
     
@@ -7,21 +8,30 @@
 
     <title>Bannco de Sangre</title>
 <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      
+     
 
     <link href="\bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="\bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css" rel="stylesheet">
     <link href="\bower_components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
     <link href="\bower_components/Materialize/dist/css/materialize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="\bower_components/bootstrap/dist/css/font-awesome.min.css">
+    <link href="\bower_components\material-design-icons\iconfont\material-icons.css" rel="stylesheet">
+
 
 
 <style type="text/css">   
-a.nounderline:link   
-{   
- text-decoration:none;   
-}   
+ul.side-nav li a
+{text-decoration:none;   }  
+ul.dropdown-content li a
+{text-decoration:none;   }  
+ul.dropdown-content a
+{text-decoration:none;   }   
+ul.nav a
+{text-decoration:none;   } 
+ul.ico li a
+{text-decoration:none;   } 
+ul.tabs li a
+{text-decoration:none;   } 
 </style>
 <link rel="icon" type="image/png" href="\bower_components/contenido/icono-o-1.png" />
 
@@ -29,19 +39,19 @@ a.nounderline:link
 <body id="app-layout">
 
 <!-- BARRA MATERIALIZER -->
-<nav class="navbar-fixed-top "> 
+<nav class="navbar-fixed-top navbar "> 
   <!-- -----------------------------------------BARRA NORMAL------------------------------------------------------------------ -->
-    <div class="nav-wrapper blue darken-4 ">
+    <div class="nav-wrapper {{$color_main}} ">
 
        <div class="container-fluid">
             <div class="navbar-header">
-                        <ul>
-                             <li>
+                        <ul class="ico" >
+                             <li >
                                
                              <a  class="nounderline grey-text text-lighten-5 navbar-toggle collapsed  button-collapse " data-activates="mobile"  data-toggle="collapse" >
                         
-                          <span class="fa fa-bars fa-2x"></span>
-                       <br><br>
+                          <span class="fa fa-bars fa-2x" style="  vertical-align: top;"></span>
+                    
                               </a>
                      
                              </li>
@@ -50,10 +60,10 @@ a.nounderline:link
       
                         <li>
                               
-                           <a class="brand-logo" href="{{ url('/') }}">
-    <font size=4>
-    <span class="fa-stack fa-lg  fa-1x ">
-                           <img alt="Responsive " class="img-responsive img-rounded " src="\bower_components/contenido/icono-o-1.png">
+                           <a class="brand-logo" href="{{ url('/') }}" >
+    <font size=4 style="  vertical-align: middle;">
+    <span class="fa-stack fa-lg  fa-1x " >
+                           <img alt="Responsive " class="img-responsive img-rounded " src="\bower_components/contenido/icono-o-1.png" >
                            </span>
                            </font>
                      <!--      <h6>
@@ -95,17 +105,18 @@ a.nounderline:link
                             <a class="nounderline grey-text text-lighten-5" href="{{ url('/login') }}">Login</a>
                             <a class="nounderline grey-text text-lighten-5" href="{{ url('/register') }}">Registro</a>
                         @else
-                            <li class="dropdown ">
-                                <a href="#" class="dropdown-toggle  white-text blue darken-4" data-toggle="dropdown" role="button" aria-expanded="false">
+                          
+                                <a href="#" class="nounderline white-text dropdown-toggle  " data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <i class="fa fa-user left "></i>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu  blue darken-4" role="menu">
-                                    <li><a href="{{ url('/logout') }}" class="grey-text text-lighten-5"><i class="fa  fa-sign-out "></i>Logout</a></li>
+                                <ul class="dropdown-menu  " role="menu">
+                                    <a href="{{ url('/logout') }}" class="btn-block nounderline deep-orange-text waves-effect waves-light "><i class="fa  fa-sign-out "></i>Logout</a>
                                            
             
                                 </ul>
-                            </li>
+                           
 
                         @endif
                     </ul>
@@ -115,35 +126,85 @@ a.nounderline:link
             </div>
         <!-- -----------------------------------------BARRA slide------------------------------------------------------------------ -->
  <!-- Dropdown Structure -->
-        <ul id="dropdown1" class="dropdown-content  blue darken-4 ">
- <!--          <li><a class="nounderline grey-text text-lighten-5" href="#1!">one</a></li>
-          <li><a class="nounderline grey-text text-lighten-5" href="#2!">two</a></li>
-          <li class="divider grey-text text-lighten-5"></li>
-          <li><a class="nounderline grey-text text-lighten-5" href="#3!">three</a></li> -->
-          <li>
-            
-          <a href="{{ url('/logout') }}" class="nounderline  grey-text text-lighten-5  btn-lg btn-block" >
+        <ul id="dropdown1" class="dropdown-content  ">
+      
+          <a class="nounderline " href="{{ url('/users/ver') }}">
+            <i class="fa fa-user  center"></i>
+            Perfil
+          </a>  
+       
+          <a href="{{ url('/logout') }}" class="  deep-orange-text  btn-lg btn-block" >
             <i class="fa fa-btn fa-sign-out ">
             </i>Logout
           </a>
-          </li>
+         
+       
         </ul>
 
              
-      <ul class="side-nav  blue darken-4 " id="mobile">
+      <ul class="side-nav   " id="mobile">
         
-        <li><a class="nounderline grey-text text-lighten-5 " href="{{ url('/home') }}"> Banco de Sangre</a></li>
 
          @if (Auth::guest())
-        <li><a class="nounderline grey-text text-lighten-5 "href="{{ url('/login') }}">Login</a></li>
-        <li><a class="nounderline grey-text text-lighten-5"href="{{ url('/register') }}">Register</a></li>
+        <li><a class="nounderline  " href="{{ url('/home') }}"> Banco de Sangre</a></li>
+        <li><a class="nounderline  "href="{{ url('/login') }}">Login</a></li>
+        <li><a class="nounderline "href="{{ url('/register') }}">Register</a></li>
 
 
         
         @else
-       
+        <li  class="nounderline blue darken-3 ">
+        <div class="nounderline  white-text">
+          <div class="text-center">
+           
+
+        </div>
+           
+                              
+                           <a class="brand-logo white-text btn-block text-center" href="{{ url('/') }}">
+    <font size=4>
+    <span class="fa-stack fa-lg  fa-2x ">
+                           <img alt="Responsive " class="img-responsive img-rounded " src="\bower_components/contenido/icono-o-1.png">
+                           </span>
+                           </font>
+                   
+<div class="row">Banco de Sangre</div>
+                    </a><br>
+                  <br>
+           <a class=" row nounderline dropdown-button  white-text" href="#" data-activates="dropdown1">
+           
+                  <div class="col-xs-10 text-left">
+                    {{substr(Auth::user()->name , 0, 15)}}...
+                  </div>
+                  <div class="col-xs-2 text-right">
+                    <i class="fa fa-angle-down " aria-hidden="true"></i>
+                    </div>
+            </a>             
+        
+</div>
+        </li>
+        
               <!-- Dropdown Trigger -->
-              <li><a class="nounderline dropdown-button grey-text text-lighten-5 " href="#" data-activates="dropdown1">  {{ Auth::user()->name }} <i class="material-icons right">arrow_drop_down</i></a></li>
+              <li >
+                <a class=" nounderline " href="{{ url('/home') }}" >
+                  <div class="col-xs-2 " >
+                     <span class="fa fa-user  "aria-hidden="true" ></span>
+                </div>
+                  <div class="col-xs-5 " >
+                    Home
+                  </div>
+
+                </a>
+                  <a class="nounderline " href="{{ url('/home') }}" >
+                  <div class="col-xs-2 ">
+                     <span class="fa fa-user  " aria-hidden="true"></span>
+                </div>
+                  <div class="col-xs-10 " >
+                    Home
+                  </div>
+                </a>
+              </li>
+  
  
         @endif
       </ul>
@@ -153,16 +214,22 @@ a.nounderline:link
 <br>
 <br>
 <br>
-<br>
-    
-</div>    @yield('content')
-
     
             <script src="\bower_components/jquery/dist/jquery.min.js"></script>
+
+    
             <script src="\bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
             <script src="\bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
             <script src="\bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
             <script src="\bower_components/Materialize/dist/js/materialize.min.js"></script>
+            <script src="\bower_components/maskara.js"></script>
+    
+
+
+<div>
+  
+@yield('content')
+</div> 
 
         <script type="text/javascript">
             $(document).on('ready',function(){
@@ -173,15 +240,53 @@ a.nounderline:link
                   outDuration: 225,
                   constrain_width: true, // Does not change width of dropdown to that of the activator
                   hover: false, // Activate on hover
-                  gutter: 20, // Spacing from edge
-                  belowOrigin: false, // Displays dropdown below the button
-                  alignment: 'center' // Displays dropdown with edge aligned to the left of button
+                  gutter: 0, // Spacing from edge
+                  belowOrigin: true, // Displays dropdown below the button
+                  alignment: 'left' // Displays dropdown with edge aligned to the left of button
                 }
               );
 
             });
         </script>
 </body>
+<style type="text/css">
+   body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+      
+</style>
+<br>
+<br>
+
+<footer class="page-footer {{$color_main}} white-text">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Sistema de Banco de Sangre</h5>
+                <p class="grey-text text-lighten-4">Sistema con el cual se pude llevar el control de donaciones y uso de unidades de sangre.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2016 <a class="white-text" href="https://www.facebook.com/Tonycby">Luis Garcia</a> 
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
 </html>
 <!-- 
     <nav class="navbar navbar-default blue darken-4">
