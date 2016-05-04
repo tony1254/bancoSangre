@@ -1,19 +1,23 @@
 <div class="panel panel-default"  id="ver">
-		        <div class="panel-heading">Usuario</div>
+		        <div class="panel-heading">persona</div>
 		        <div class="panel-body">
-		        <form class="form" role="form" method="POST" action="{{ url($_SERVER['REQUEST_URI']) }}">
+		        <form class="form" role="form" method="POST" action="{{ url($mid.'/personas/') }}">
                         {!! csrf_field() !!}
-
+<input type="text" name="id"value="{{$id}}" hidden>
 					  <div class="input-field col s6">
-				          <input placeholder="Ingrese Nombre de Usuario" id="nombre" name="nombre" type="text" class="validate" value="{{$usuario->name}}" required>
+				          <input placeholder="Ingrese Nombre de Usuario" id="nombre" name="nombre" type="text" class="validate" value="{{$persona->nombre}}" required>
 				          <label class="active"  for="nombree">Nombre</label>
 				      </div> 
+					  <div class="input-field col s6">
+				          <input placeholder="Ingrese Apellido de Usuario" id="apellido" name="apellido" type="text" class="validate" value="{{$persona->apellido}}" required>
+				          <label class="active"  for="nombree">Apellidos</label>
+				      </div> 
 				      <div class="input-field col s6">
-				          <input placeholder="Ingrese Nombre de Usuario" id="emaile" name="email" type="email" class="validate" value="{{$usuario->email}}" required>
+				          <input placeholder="Ingrese Nombre de Usuario" id="emaile" name="email" type="email" class="validate" value="{{$persona->email}}" required>
 				          <label class="active"  for="emaile">Email</label>
 				      </div>
 				      <div class="input-field col s6">
-				          <input placeholder="Ingrese Nombre de CUI" id="cui" name="cui" type="text" class="validate cui" value="{{$usuario->cui}}" required
+				          <input placeholder="Ingrese Nombre de CUI" id="cui" name="cui" type="text" class="validate cui" value="{{$persona->cui}}" required
  							title="Ingrese un CUI valido : 9999-99999-9999">
 				          
 				          <label class="active"  for="emaile">CUI</label>
@@ -45,7 +49,7 @@
 		 		</form>
     	</div>    
     	<script type="text/javascript">
-    	function ver(){
+    	function verper(){
 	
 	
 $( '#carga' ).show();

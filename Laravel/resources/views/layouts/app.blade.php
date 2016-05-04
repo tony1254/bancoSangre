@@ -22,6 +22,8 @@
 <style type="text/css">   
 ul.side-nav li a
 {text-decoration:none;   }  
+a.btn-flat
+{text-decoration:none;   }  
 ul.dropdown-content li a
 {text-decoration:none;   }  
 ul.dropdown-content a
@@ -112,7 +114,7 @@ ul.tabs li a
                                 </a>
 
                                 <ul class="dropdown-menu  " role="menu">
-                                    <a href="{{ url('/logout') }}" class="btn-block nounderline deep-orange-text waves-effect waves-light "><i class="fa  fa-sign-out "></i>Logout</a>
+                                    <a href="{{ url('/logout') }}" class="btn-block nounderline deep-orange-text waves-effect waves-light "><i class="fa  fa-sign-out "></i>Cerrar Sesion</a>
                                            
             
                                 </ul>
@@ -128,14 +130,14 @@ ul.tabs li a
  <!-- Dropdown Structure -->
         <ul id="dropdown1" class="dropdown-content  ">
       
-          <a class="nounderline " href="{{ url('/users/ver') }}">
+          <a class="nounderline " href="{{ url('/admin') }}">
             <i class="fa fa-user  center"></i>
             Perfil
           </a>  
        
           <a href="{{ url('/logout') }}" class="  deep-orange-text  btn-lg btn-block" >
             <i class="fa fa-btn fa-sign-out ">
-            </i>Logout
+            </i>Cerrar Sesion
           </a>
          
        
@@ -188,10 +190,10 @@ ul.tabs li a
               <li >
                 <a class=" nounderline " href="{{ url('/home') }}" >
                   <div class="col-xs-2 " >
-                     <span class="fa fa-user  "aria-hidden="true" ></span>
+                     <span class="fa fa-retweet  "aria-hidden="true" ></span>
                 </div>
                   <div class="col-xs-5 " >
-                    Home
+                    Transacciones
                   </div>
 
                 </a>
@@ -200,7 +202,15 @@ ul.tabs li a
                      <span class="fa fa-user  " aria-hidden="true"></span>
                 </div>
                   <div class="col-xs-10 " >
-                    Home
+                    Usuarios
+                  </div>
+                </a>
+                <a class="nounderline " href="{{ url('/home') }}" >
+                  <div class="col-xs-2 ">
+                     <span class="fa fa-universal-access  " aria-hidden="true"></span>
+                </div>
+                  <div class="col-xs-10 " >
+                    Personas
                   </div>
                 </a>
               </li>

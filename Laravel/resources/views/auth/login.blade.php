@@ -66,8 +66,9 @@
                                 <button type="submit" class="btn btn-primary white-text blue darken-4">
                                     <i class="fa fa-btn fa-sign-in"></i>Iniciar Sesion
                                 </button>
+  <a class="waves-effect  btn-flat waves-red blue-text text-darken-4" href="{{ url('/password/reset') }}">Olvidaste tu Contraseña?</a>
 
-                                <a class="blue-text text-darken-4" href="{{ url('/password/reset') }}">Olvidaste tu Contraseña?</a>
+                                
                             </div>
                         </div>
                     </form>

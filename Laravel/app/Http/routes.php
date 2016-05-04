@@ -36,12 +36,13 @@ Route::group(['middleware'=>['auth','administrador'],'prefix'=>'admin'],function
 	Route::get('/', 'usuarios\usuariosController@index');	
 	Route::post('/usuarios/{id}/edit', 'usuarios\usuariosController@guardar');	
 	Route::resource('usuarios', 'usuarios\usuariosController');
+	Route::resource('personas', 'personas\personasController');
 	//Route::resource('persona', 'PersonaController');
 });
 Route::group(['middleware'=>['auth','encargado'],'prefix'=>'encargado'],function(){
 	Route::post('/usuarios/{id}/edit', 'usuarios\usuariosController@guardar');	
-	Route::post('/usuarios/{id}/edit', 'usuarios\usuariosController@guardar');	
 	Route::resource('usuarios', 'usuarios\usuariosController');
+	Route::resource('personas', 'personas\personasController');
 	Route::get('/', 'usuarios\usuariosController@index');
 	//Route::resource('persona', 'PersonaController');
 });
@@ -49,5 +50,6 @@ Route::group(['middleware'=>['auth','usuario'],'prefix'=>'usuario'],function(){
 	Route::get('/', 'usuarios\usuariosController@index');	
 	Route::post('/usuarios/{id}/edit', 'usuarios\usuariosController@guardar');	
 	Route::resource('usuarios', 'usuarios\usuariosController');
+	Route::resource('personas', 'personas\personasController');
 	//Route::resource('persona', 'PersonaController');
 });
