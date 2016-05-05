@@ -1,9 +1,9 @@
 <div class="panel panel-default"  id="ver">
 		        <div class="panel-heading">Usuario</div>
 		        <div class="panel-body">
-		        <form class="form" role="form" method="POST" action="{{ url($_SERVER['REQUEST_URI']) }}">
+		        <form class="form" role="form" method="POST" action="{{ url($mid.'/usuarios/'.$usuario->id) }}">
                         {!! csrf_field() !!}
-
+<input type="text" name="_method" value="PUT" hidden>
 					  <div class="input-field col s6">
 				          <input placeholder="Ingrese Nombre de Usuario" id="nombre" name="nombre" type="text" class="validate" value="{{$usuario->name}}" required>
 				          <label class="active"  for="nombree">Nombre</label>

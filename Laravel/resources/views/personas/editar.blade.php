@@ -1,20 +1,21 @@
-<div class="panel panel-default"  id="ver">
+<div class="panel panel-default"  id="ver2">
 		        <div class="panel-heading">persona</div>
 		        <div class="panel-body">
-		        <form class="form" role="form" method="POST" action="{{ url($mid.'/personas/') }}">
+		        <form class="form" role="form" method="POST" action="{{ url($mid.'/personas/'.$persona->id) }}">
                         {!! csrf_field() !!}
-<input type="text" name="id"value="{{$id}}" hidden>
+<input type="text" name="id" value="" hidden>
+<input type="text" name="_method" value="PUT" hidden>
 					  <div class="input-field col s6">
-				          <input placeholder="Ingrese Nombre de Usuario" id="nombre" name="nombre" type="text" class="validate" value="{{$persona->nombre}}" required>
+				          <input placeholder="Ingrese Nombre" id="nombre" name="nombre" type="text" class="validate" value="{{$persona->nombre}}" required>
 				          <label class="active"  for="nombree">Nombre</label>
 				      </div> 
 					  <div class="input-field col s6">
-				          <input placeholder="Ingrese Apellido de Usuario" id="apellido" name="apellido" type="text" class="validate" value="{{$persona->apellido}}" required>
+				          <input placeholder="Ingrese Apellido " id="apellido" name="apellido" type="text" class="validate" value="{{$persona->apellido}}" required>
 				          <label class="active"  for="nombree">Apellidos</label>
 				      </div> 
 				      <div class="input-field col s6">
-				          <input placeholder="Ingrese Nombre de Usuario" id="emaile" name="email" type="email" class="validate" value="{{$persona->email}}" required>
-				          <label class="active"  for="emaile">Email</label>
+				          <input placeholder="Ingrese email " id="email" name="email" type="email" class="validate" value="{{$persona->email}}" required>
+				          <label class="active"  for="email">Email</label>
 				      </div>
 				      <div class="input-field col s6">
 				          <input placeholder="Ingrese Nombre de CUI" id="cui" name="cui" type="text" class="validate cui" value="{{$persona->cui}}" required
@@ -22,23 +23,47 @@
 				          
 				          <label class="active"  for="emaile">CUI</label>
 				      </div>
-				      <div class="input-field col s6">
-					
-						Rol:	
-						<select class="form-control" name="rol" id="rol">
-						@foreach ($roles as $rl)
-							<option value="{{$rl->id}}"
-								@if ($rl->id==$usuario->rol)
+				      <div class="input-field col s6">	
+				      
+				      	<div class="col-xs-3">
+				      		Sexo:
+				      	</div>
+				      	<div class="col-xs-9">
+				      		
+						<select class="form-control" name="sexo" id="sexo">
+						@foreach ($sexos as $sexo)
+							<option value="{{$sexo->id}}"
+								@if ($sexo->id==$persona->sexo)
 									selected 
 								@endif
-							>{{$rl->nombre}}</option>
+							>{{$sexo->nombre}}</option>
 						@endforeach
 						</select>
+				      	</div>
+				      
 					</div>
-					<div class="input-field col s6">					
-						<input id="contraseña" type="text" class="form-control" name="contrasena" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número , una mayúscula , una minúscula, y al menos 8 o más caracteres">
-			          	<label for="contraseña">Contraseña</label>
-        			</div>    
+					<div class="input-field col s6">
+				          <input placeholder="Ingrese vecindad de la persona" id="vecindad" name="vecindad" type="text" class="validate" value="{{$persona->vecindad}}" required>
+				          <label class="active"  for="nombree">Vecindad</label>
+				      </div>				
+				      <div class="input-field col s6">
+				          <input placeholder="Ingrese Nombre de fechaNacimiento" id="fechaNacimiento" name="fechaNacimiento" type="date" class="validate fechaNacimiento" value="{{$persona->fechaNacimiento}}" required
+ 							title="Ingrese un fechaNacimiento valido">
+				          
+				          <label class="active"  for="emaile">Fecha de Nacimiento</label>
+				      </div>
+				      <div class="input-field col s6">
+				          <input placeholder="Ingrese Nombre de telefono1" id="telefono1" name="telefono1" type="text" class="validate telefono1" value="{{$persona->telefono1}}" required
+ 							title="Ingrese un telefono1 valido : 9999-9999">
+				          
+				          <label class="active"  for="emaile">Telefono 1</label>
+				      </div>
+				      <div class="input-field col s6">
+				          <input placeholder="Ingrese Nombre de telefono2" id="telefono2" name="telefono2" type="text" class="validate telefono2" value="{{$persona->telefono2}}" 
+ 							title="Ingrese un telefono2 valido : 9999-9999">
+				          
+				          <label class="active"  for="emaile">telefono 2</label>
+				      </div>	    
 					<div class="row">
 						<div class="col-xs-3 col-xs-offset-9">
 							<button class="btn btn-floating btn-fab green  darken-1" type="submit"><i class="material-icons">create</i></button>
@@ -53,11 +78,13 @@
 	
 	
 $( '#carga' ).show();
-	$( '#ver' ).toggle();
+	$( '#ver2' ).toggle();
 
 location.reload();
 }
 				$('#carga').toggle();
                 $("#cui").mask("9999-99999-9999");
+                $("#telefono1").mask("9999-9999");
+                $("#telefono2").mask("9999-9999");
 
     	</script>

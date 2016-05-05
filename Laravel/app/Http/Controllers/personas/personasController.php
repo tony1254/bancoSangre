@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\CRol;
 use App\User;
+use App\CSexo;
 use App\Persona;
 use Validator;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -46,12 +47,41 @@ class personasController extends Controller
      */    
 public function show($id)
     {
-        $usuario=User::find($id);
-         $usuario->name;
-        $rol=CRol::find($usuario->rol)->nombre;
-        $persona=Persona::where('cui','=',$usuario->cui)->get();
+        return redirect()->to('admin/usuarios/'.Auth::user()->id);
 
-        return view('adminIndex', ['persona' => $persona,'rol' => $rol,'usuario'=>$usuario]);
+    }  
+      /**
+     * Mostrar Solo uno
+     *
+     * @return void
+     */    
+public function update($id,Request $request)
+    {
+
+        $usuario=User::find(Auth::user()->id);
+        $rol=CRol::find($usuario->rol)->nombre;
+        $persona=Persona::find($id);
+        $persona->nombre=$request->input('nombre');
+        $persona->apellido=$request->input('apellido');
+        $persona->vecindad=$request->input('vecindad');
+        $persona->telefono1=$request->input('telefono1');
+        $persona->telefono2=$request->input('telefono2');
+        $persona->cui=str_replace('-', '', $request->get('cui'));
+        $persona->email=$request->input('email');
+        $persona->sexo=$request->input('sexo');
+        $persona->fechaNacimiento=$request->input('fechaNacimiento');
+        $persona->save();
+        $mid='';
+if ($usuario->rol==1){
+$mid='admin';
+}elseif ($usuario->rol==2){
+$mid='encargado';
+}elseif ($usuario->rol==3){
+$mid='usuario';
+}
+
+
+        return view('adminIndex', ['persona' => $persona,'rol' => $rol,'usuario'=>$usuario,'mid'=>$mid]);
     }      
 /**
      * formulario editar una Persona
@@ -64,7 +94,7 @@ public function edit($id)
         $usuario=Auth::user();
          $usuario->name;
         $rol=CRol::find($usuario->rol)->nombre;
-        $roles=CRol::all();
+        $sexos=CSexo::all();
 $mid='';
 if ($usuario->rol==1){
 $mid='admin';
@@ -75,7 +105,7 @@ $mid='usuario';
 }
 
 
-        return view('personas/editar', ['roles' => $roles,'rol' => $rol,'persona'=>$persona,'usuario'=>$usuario,'mid'=>$mid,'id'=>$id]);
+        return view('personas/editar', ['sexos' => $sexos,'rol' => $rol,'persona'=>$persona,'usuario'=>$usuario,'mid'=>$mid,'id'=>$id]);
 
     }
 /**
@@ -95,15 +125,6 @@ $mid='usuario';
     {
             return redirect()->to('admin/usuarios/'.Auth::user()->id);
 
-        return view('usuarios/editar');
-
-        
-
-
-
-return "hola";
-        return "<script type='text/javascript'>  Materialize.toast('Mensajito de Error o de OK!', 3000, 'rounded')
-</script>";
     }
 public function create()
     {

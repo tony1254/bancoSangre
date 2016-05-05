@@ -109,7 +109,7 @@
 function editar(){
 	$( '#ver' ).toggle();
 	$('#carga').show();
-$( '#test2' ).load( '{{$usuario->id}}/edit' );
+$( '#test2' ).load( '{{ url($mid.'/usuarios/'.$usuario->id.'/edit ') }}' );
 }
 
 function ocultar(){
@@ -124,13 +124,12 @@ function ocultar(){
     <div id="test4" class="col s12">
  
 		
-		    <div class="panel panel-default">
+		    <div class="panel panel-default" id="ver2">
 		        <div class="panel-heading">Persona</div>
 		        <div class="panel-body">
 		        @if (count($persona)==0)
 		        	Aun no hay Persona Vinculada
 		        @else
-		        <!-- {{$persona=$persona[0]}}-->
 <!-- @if ($usuario->rol==1)
 {{$mid='admin'}}
 @elseif	($usuario->rol==2)
@@ -141,7 +140,7 @@ function ocultar(){
 
 		        <script type="text/javascript">
 		        	function editarper(){
-						$( '#ver' ).toggle();
+						$( '#ver2' ).toggle();
 						$('#carga').show();
 						$( '#test4' ).load( '\\{{$mid}}/personas/{{$persona->id}}/edit' );
 					}
@@ -189,9 +188,6 @@ function ocultar(){
     </div>
     </div>
 
-d
-{{$mid}}
-d
 
 
 

@@ -43,15 +43,6 @@ class usuariosController extends Controller
     {
             return redirect()->to('admin/usuarios/'.Auth::user()->id);
 
-        return view('usuarios/editar');
-
-        
-
-
-
-return "hola";
-        return "<script type='text/javascript'>  Materialize.toast('Mensajito de Error o de OK!', 3000, 'rounded')
-</script>";
     }
 public function create()
     {
@@ -64,20 +55,38 @@ public function edit($id)
          $usuario->name;
         $rol=CRol::find($usuario->rol)->nombre;
         $roles=CRol::all();
+$mid='';
+if ($usuario->rol==1){
+$mid='admin';
+}elseif ($usuario->rol==2){
+$mid='encargado';
+}elseif ($usuario->rol==3){
+$mid='usuario';
+}
 
-        return view('usuarios/editar', ['roles' => $roles,'rol' => $rol,'usuario'=>$usuario]);
+        return view('usuarios/editar', ['roles' => $roles,'rol' => $rol,'usuario'=>$usuario,'mid'=>$mid]);
 
     }
 public function show($id)
     {
-        $usuario=User::find($id);
+
+        $usuario=User::find(Auth::user()->id);
          $usuario->name;
         $rol=CRol::find($usuario->rol)->nombre;
-        $persona=Persona::where('cui','=',$usuario->cui)->get();
 
-        return view('adminIndex', ['persona' => $persona,'rol' => $rol,'usuario'=>$usuario]);
+        $persona=Persona::where('cui','=',$usuario->cui)->first();
+$mid='';
+if ($usuario->rol==1){
+$mid='admin';
+}elseif ($usuario->rol==2){
+$mid='encargado';
+}elseif ($usuario->rol==3){
+$mid='usuario';
+}
+
+        return view('adminIndex', ['persona' => $persona,'rol' => $rol,'usuario'=>$usuario,'mid'=>$mid]);
     }             
-public function guardar(Request $request, $id)
+public function update(Request $request, $id)
     {
         $var=$request->get('contrasena');
         $usuario=User::find($id);
