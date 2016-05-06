@@ -37,6 +37,16 @@ Route::group(['middleware'=>['auth','administrador'],'prefix'=>'admin'],function
 	Route::post('/usuarios/{id}/edit', 'usuarios\usuariosController@guardar');	
 	Route::resource('usuarios', 'usuarios\usuariosController');
 	Route::resource('personas', 'personas\personasController');
+	/*Rutas de formularios para catalogos*/
+		Route::get('/catalogos/{catalogo}', 'catalogos\catalogosController@index')->name('admin.catalogos.index');	
+		Route::get('/catalogos/{catalogo}/{id}/show', 'catalogos\catalogosController@show')->name('admin.catalogos.show');	
+		Route::get('/catalogos/{catalogo}/{id}/edit', 'catalogos\catalogosController@edit')->name('admin.catalogos.edit');
+		Route::put('/catalogos/{catalogo}/{id}/update', 'catalogos\catalogosController@update')->name('admin.catalogos.update');		
+		Route::get('/catalogos/{catalogo}/create', 'catalogos\catalogosController@create')->name('admin.catalogos.create');	
+		Route::post('/catalogos/{catalogo}', 'catalogos\catalogosController@store')->name('admin.catalogos.store');	
+
+
+
 	//Route::resource('persona', 'PersonaController');
 });
 Route::group(['middleware'=>['auth','encargado'],'prefix'=>'encargado'],function(){

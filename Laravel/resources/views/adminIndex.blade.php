@@ -27,7 +27,12 @@
     <li>
       <div class="collapsible-header"><i class="fa fa-cogs" aria-hidden="true"></i>Catalogos</div>
       <div class="collapsible-body"><p>
-				<a href="#" class="btn"></a>
+				<a href="{{ url($mid.'/catalogos/sexo') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-venus-mars fa-2x" aria-hidden="true"></i>Sexos
+				</a>
+
+				<a href="{{ url($mid.'/catalogos/rol') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-braille fa-2x" aria-hidden="true"></i>
+					Roles
+				</a>
 				<a href="#" class="btn"></a>
       		</p>
       </div>
@@ -96,7 +101,7 @@
 		 		<div class="panel-footer">
 					<div class="row">
 						<div class="col-xs-3 col-xs-offset-9">
-							<a class="btn btn-floating btn-fab amber   darken-3" onclick=" editar();"><i class="medium material-icons ">create</i></a>
+							<a class="btn btn-floating btn-fab amber   darken-3 waves-effect waves-light" onclick=" editar();"><i class="medium material-icons ">create</i></a>
 						</div>
 					</div>
 		 			
@@ -175,7 +180,7 @@ function ocultar(){
 		  <div class="panel-footer">
 					<div class="row">
 						<div class="col-xs-3 col-xs-offset-9">
-							<a class="btn btn-floating btn-fab amber  darken-3
+							<a class="btn btn-floating btn-fab amber  darken-3 waves-effect waves-light
 								@if (count($persona)==0)
 								disabled
 								@endif

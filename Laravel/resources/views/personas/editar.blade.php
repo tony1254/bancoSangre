@@ -6,19 +6,19 @@
 <input type="text" name="id" value="" hidden>
 <input type="text" name="_method" value="PUT" hidden>
 					  <div class="input-field col s6">
-				          <input placeholder="Ingrese Nombre" id="nombre" name="nombre" type="text" class="validate" value="{{$persona->nombre}}" required>
+				          <input  id="nombre" name="nombre" type="text" class="validate" value="{{$persona->nombre}}" required>
 				          <label class="active"  for="nombree">Nombre</label>
 				      </div> 
 					  <div class="input-field col s6">
-				          <input placeholder="Ingrese Apellido " id="apellido" name="apellido" type="text" class="validate" value="{{$persona->apellido}}" required>
+				          <input  id="apellido" name="apellido" type="text" class="validate" value="{{$persona->apellido}}" required>
 				          <label class="active"  for="nombree">Apellidos</label>
 				      </div> 
 				      <div class="input-field col s6">
-				          <input placeholder="Ingrese email " id="email" name="email" type="email" class="validate" value="{{$persona->email}}" required>
+				          <input  id="email" name="email" type="email" class="validate" value="{{$persona->email}}" required>
 				          <label class="active"  for="email">Email</label>
 				      </div>
 				      <div class="input-field col s6">
-				          <input placeholder="Ingrese Nombre de CUI" id="cui" name="cui" type="text" class="validate cui" value="{{$persona->cui}}" required
+				          <input placeholder="Ingrese CUI" id="cui" name="cui" type="text" class="validate cui" value="{{$persona->cui}}" required
  							title="Ingrese un CUI valido : 9999-99999-9999">
 				          
 				          <label class="active"  for="emaile">CUI</label>
@@ -43,7 +43,7 @@
 				      
 					</div>
 					<div class="input-field col s6">
-				          <input placeholder="Ingrese vecindad de la persona" id="vecindad" name="vecindad" type="text" class="validate" value="{{$persona->vecindad}}" required>
+				          <input  id="vecindad" name="vecindad" type="text" class="validate" value="{{$persona->vecindad}}" required>
 				          <label class="active"  for="nombree">Vecindad</label>
 				      </div>				
 				      <div class="input-field col s6">
@@ -66,7 +66,7 @@
 				      </div>	    
 					<div class="row">
 						<div class="col-xs-3 col-xs-offset-9">
-							<button class="btn btn-floating btn-fab green  darken-1" type="submit"><i class="material-icons">create</i></button>
+							<button class="btn btn-floating btn-fab green  darken-1 waves-effect waves-light" type="submit"><i class="material-icons">create</i></button>
 						</div>
 					</div>
 

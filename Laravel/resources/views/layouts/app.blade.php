@@ -6,7 +6,7 @@
     
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>Bannco de Sangre</title>
+    <title> @yield('title','Banco de Sangre')</title>
 <!--Import Google Icon Font-->
      
 
@@ -38,6 +38,7 @@ ul.tabs li a
 <link rel="icon" type="image/png" href="\bower_components/contenido/icono-o-1.png" />
 
 </head>
+
 <body id="app-layout">
 
 <!-- BARRA MATERIALIZER -->
@@ -107,18 +108,32 @@ ul.tabs li a
                             <a class="nounderline grey-text text-lighten-5" href="{{ url('/login') }}">Login</a>
                             <a class="nounderline grey-text text-lighten-5" href="{{ url('/register') }}">Registro</a>
                         @else
-                          
-                                <a href="#" class="nounderline white-text dropdown-toggle  " data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <i class="fa fa-user left "></i>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                   
+                        <!-- Dropdown contenido -->
 
-                                <ul class="dropdown-menu  " role="menu">
-                                    <a href="{{ url('/logout') }}" class="btn-block nounderline deep-orange-text waves-effect waves-light "><i class="fa  fa-sign-out "></i>Cerrar Sesion</a>
-                                           
-            
-                                </ul>
-                           
+                        <ul id="link" class="dropdown-content">
+                                <li class="divider"></li>
+                                <li>
+                                     <a href="{{ url('/admin') }}" class=" nounderline black-text waves-effect waves-light "><i class="fa  fa-exchange "></i>&nbsp;&nbsp;Transacciones</a>
+                                </li>
+                                <li>
+                                     <a href="{{ url('/admin') }}" class=" nounderline black-text waves-effect waves-light "><i class="fa  fa-users "></i>&nbsp;&nbsp;Usuarios</a>
+                                </li>
+                                <li>
+                                     <a href="{{ url('/admin') }}" class=" nounderline black-text waves-effect waves-light "><i class="fa  fa-universal-access "></i>&nbsp;&nbsp;Personas</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                     <a href="{{ url('/admin') }}" class=" nounderline black-text waves-effect waves-light "><i class="fa  fa-user "></i>&nbsp;&nbsp;&nbsp;Perfil</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/logout') }}" class=" nounderline deep-orange-text waves-effect waves-light "><i class="fa  fa-sign-out "></i>&nbsp;&nbsp;Cerrar Sesion</a>
+                                </li>
+                        </ul>   
+                        <!-- Dropdown Trigger -->
+    
+                                <a class="dropdown-button white-text" href="#!" data-activates="link"  >
+                                   <i class="fa  fa-user left " ></i>{{ Auth::user()->name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
 
                         @endif
                     </ul>
@@ -187,7 +202,7 @@ ul.tabs li a
         </li>
         
               <!-- Dropdown Trigger -->
-              <li >
+              <li>
                 <a class=" nounderline " href="{{ url('/home') }}" >
                   <div class="col-xs-2 " >
                      <span class="fa fa-retweet  "aria-hidden="true" ></span>
@@ -258,7 +273,6 @@ ul.tabs li a
 
             });
         </script>
-</body>
 <style type="text/css">
    body {
     display: flex;
@@ -273,44 +287,29 @@ ul.tabs li a
 </style>
 <br>
 <br>
-
-<footer class="page-footer {{$color_main}} white-text">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Sistema de Banco de Sangre</h5>
-                <p class="grey-text text-lighten-4">Sistema con el cual se pude llevar el control de donaciones y uso de unidades de sangre.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  
-                </ul>
-              </div>
-            </div>
-          </div>
+</body>
+<main>
+  
+</main>
+<footer class="fixed-height  page-footer {{$color_main}} white-text" >
+          
           <div class="footer-copyright">
-            <div class="container">
+            <div class="container text-center">
             © 2016 <a class="white-text" href="https://www.facebook.com/Tonycby">Luis Garcia</a> 
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <a class="grey-text text-lighten-4 right" href="https://github.com/tony1254/bancoSangre"><i class="fa fa-github fa-2x" aria-hidden="true"></i> Codigo Fuente
+              </a>
             </div>
           </div>
         </footer>
+<style type="text/css">
+    body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+</style>
 </html>
-<!-- 
-    <nav class="navbar navbar-default blue darken-4">
-        <div class="container">
-            <div class="navbar-header">
-
-                Collapsed Hamburger 
-
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                Branding Image
-     -->

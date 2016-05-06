@@ -5,11 +5,13 @@
                         {!! csrf_field() !!}
 <input type="text" name="_method" value="PUT" hidden>
 					  <div class="input-field col s6">
-				          <input placeholder="Ingrese Nombre de Usuario" id="nombre" name="nombre" type="text" class="validate" value="{{$usuario->name}}" required>
-				          <label class="active"  for="nombree">Nombre</label>
+				          <input id="nombre" name="nombre" type="text" class="validate" value="{{$usuario->name}}" required
+				         pattern=".{0}|.{4,}" title="Debe contener un minimo de 4 caracteres" 
+				          >
+				          <label class="active"  for="nombree">Nombre de Usuario</label>
 				      </div> 
 				      <div class="input-field col s6">
-				          <input placeholder="Ingrese Nombre de Usuario" id="emaile" name="email" type="email" class="validate" value="{{$usuario->email}}" required>
+				          <input  id="emaile" name="email" type="email" class="validate" value="{{$usuario->email}}" required>
 				          <label class="active"  for="emaile">Email</label>
 				      </div>
 				      <div class="input-field col s6">
@@ -37,7 +39,7 @@
         			</div>    
 					<div class="row">
 						<div class="col-xs-3 col-xs-offset-9">
-							<button class="btn btn-floating btn-fab green  darken-1" type="submit"><i class="material-icons">create</i></button>
+							<button class="btn btn-floating btn-fab green  darken-1 waves-effect waves-light" type="submit"><i class="material-icons">create</i></button>
 						</div>
 					</div>
 
