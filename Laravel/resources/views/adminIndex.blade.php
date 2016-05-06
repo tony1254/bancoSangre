@@ -16,10 +16,7 @@
 @endif
         <li class="tab col s3"><a onclick=" ver()" class="active blue-text text-darken-4 tooltipped" href="#test2" data-position="bottom" data-delay="50" data-tooltip="Usuario"><i  style="  vertical-align: middle;"class="fa fa-2x fa-user" aria-hidden="true"></i>
 </a></li>
-        <li class="tab col s3"><a onclick=" verper()" href="#test4"class=" blue-text text-darken-4 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Persona">
-        
-        <i class="material-icons md-24">fingerprint</i>
-        
+        <li class="tab col s3"><a onclick=" verper()" href="#test4"class=" blue-text text-darken-4 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Persona"><i class="fa fa-2x fa-universal-access" aria-hidden="true" style="  vertical-align: middle;"></i>
 </a></li>
       </ul>
     </div>
