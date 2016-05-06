@@ -14,7 +14,7 @@
 				      </div> 
 			 		 </div>
 			 	</div>
-<div class="fixed-action-btn" style="bottom: 100px; right: 24px;">
+<div class="fixed-action-btn" style="bottom: 50px; right: 24px;">
     <button class="btn-floating btn-large green tooltipped waves-effect waves-light" data-position="left" data-delay="50" data-tooltip="Grabar" type="submit">
     	<i class="fa fa-floppy-o"></i>
     </button>

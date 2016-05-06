@@ -117,14 +117,14 @@ ul.tabs li a
                                      <a href="{{ url('/admin') }}" class=" nounderline black-text waves-effect waves-light "><i class="fa  fa-exchange "></i>&nbsp;&nbsp;Transacciones</a>
                                 </li>
                                 <li>
-                                     <a href="{{ url('/admin') }}" class=" nounderline black-text waves-effect waves-light "><i class="fa  fa-users "></i>&nbsp;&nbsp;Usuarios</a>
+                                     <a href="{{ url('/admin/usuario') }}" class=" nounderline black-text waves-effect waves-light "><i class="fa  fa-users "></i>&nbsp;&nbsp;Usuarios</a>
                                 </li>
                                 <li>
-                                     <a href="{{ url('/admin') }}" class=" nounderline black-text waves-effect waves-light "><i class="fa  fa-universal-access "></i>&nbsp;&nbsp;Personas</a>
+                                     <a href="{{ url('/admin/persona') }}" class=" nounderline black-text waves-effect waves-light "><i class="fa  fa-universal-access "></i>&nbsp;&nbsp;Personas</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                     <a href="{{ url('/admin') }}" class=" nounderline black-text waves-effect waves-light "><i class="fa  fa-user "></i>&nbsp;&nbsp;&nbsp;Perfil</a>
+                                     <a href="{{ url('/admin') }}" class=" nounderline black-text waves-effect waves-light "><i class="fa  fa-user-md "></i>&nbsp;&nbsp;&nbsp;Perfil</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('/logout') }}" class=" nounderline deep-orange-text waves-effect waves-light "><i class="fa  fa-sign-out "></i>&nbsp;&nbsp;Cerrar Sesion</a>
@@ -133,7 +133,7 @@ ul.tabs li a
                         <!-- Dropdown Trigger -->
     
                                 <a class="dropdown-button white-text" href="#!" data-activates="link"  >
-                                   <i class="fa  fa-user left " ></i>{{ Auth::user()->name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
+                                   <i class="fa  fa-user-md left " ></i>{{ Auth::user()->name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
 
                         @endif
                     </ul>
@@ -146,7 +146,7 @@ ul.tabs li a
         <ul id="dropdown1" class="dropdown-content  ">
       
           <a class="nounderline " href="{{ url('/admin') }}">
-            <i class="fa fa-user  center"></i>
+            <i class="fa fa-user-md  center"></i>
             Perfil
           </a>  
        
@@ -212,7 +212,7 @@ ul.tabs li a
                   </div>
 
                 </a>
-                  <a class="nounderline " href="{{ url('/home') }}" >
+                  <a class="nounderline " href="{{ url('/admin/usuario') }}" >
                   <div class="col-xs-2 ">
                      <span class="fa fa-user  " aria-hidden="true"></span>
                 </div>
@@ -220,7 +220,7 @@ ul.tabs li a
                     Usuarios
                   </div>
                 </a>
-                <a class="nounderline " href="{{ url('/home') }}" >
+                <a class="nounderline " href="{{ url('/admin/usuario') }}" >
                   <div class="col-xs-2 ">
                      <span class="fa fa-universal-access  " aria-hidden="true"></span>
                 </div>

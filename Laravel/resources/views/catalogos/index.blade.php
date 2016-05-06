@@ -27,7 +27,7 @@
 			 		    </ul>
 			 		 </div>
 			 	</div>
-<div class="fixed-action-btn" style="bottom: 100px; right: 24px;">
+<div class="fixed-action-btn" style="bottom: 50px; right: 24px;">
     <a class="btn-floating btn-large red tooltipped waves-effect waves-light" data-position="left" data-delay="50" data-tooltip="Nuevo" href="{{ url($mid.'/catalogos/'.$catalogo.'/create') }}">
 
     	<i class="fa fa-plus"></i>

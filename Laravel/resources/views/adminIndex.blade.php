@@ -14,7 +14,7 @@
         <li class="tab col s3  "><a  href="#test1" class=" blue-text text-darken-4 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Panel de Control"><i style="  vertical-align: middle;" class="fa fa-cog fa-2x" aria-hidden="true"></i>
 </a></li>
 @endif
-        <li class="tab col s3"><a onclick=" ver()" class="active blue-text text-darken-4 tooltipped" href="#test2" data-position="bottom" data-delay="50" data-tooltip="Usuario"><i  style="  vertical-align: middle;"class="fa fa-2x fa-user" aria-hidden="true"></i>
+        <li class="tab col s3"><a onclick=" ver()" class="active blue-text text-darken-4 tooltipped" href="#test2" data-position="bottom" data-delay="50" data-tooltip="Usuario"><i  style="  vertical-align: middle;"class="fa fa-2x fa-user-md" aria-hidden="true"></i>
 </a></li>
         <li class="tab col s3"><a onclick=" verper()" href="#test4"class=" blue-text text-darken-4 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Persona"><i class="fa fa-2x fa-universal-access" aria-hidden="true" style="  vertical-align: middle;"></i>
 </a></li>
@@ -39,27 +39,35 @@
 				<a href="{{ url($mid.'/catalogos/congelador') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-cube fa-2x" aria-hidden="true"></i>
 					Congeladores
 				</a>
-				<a href="{{ url($mid.'/catalogos/estadoUnidad') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-braille fa-2x" aria-hidden="true"></i>
+				<a href="{{ url($mid.'/catalogos/estadoUnidad') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-tachometer fa-2x" aria-hidden="true"></i>
 					Estados de Unidades
 				</a>
-				<a href="{{ url($mid.'/catalogos/factorSangre') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-braille fa-2x" aria-hidden="true"></i>
+				<a href="{{ url($mid.'/catalogos/factorSangre') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-tint fa-2x" aria-hidden="true"></i>
 					Factores de Sangre
 				</a>
-				<a href="{{ url($mid.'/catalogos/grupoSangre') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-braille fa-2x" aria-hidden="true"></i>
+				<a href="{{ url($mid.'/catalogos/grupoSangre') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-tint fa-2x" aria-hidden="true"></i>
 					Grupos de Sangre
 				</a>
-				<a href="{{ url($mid.'/catalogos/tipoAfeccion') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-braille fa-2x" aria-hidden="true"></i>
+				<a href="{{ url($mid.'/catalogos/tipoAfeccion') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-stethoscope fa-2x" aria-hidden="true"></i>
 					Tipos de Afecciones
 				</a>
-				<a href="{{ url($mid.'/catalogos/tipoTransaccion') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-braille fa-2x" aria-hidden="true"></i>
+				<a href="{{ url($mid.'/catalogos/tipoTransaccion') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-exchange fa-2x" aria-hidden="true"></i>
 					Tipos de trannsacciones
 				</a>
       		</p>
       </div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="collapsible-header"><i class="material-icons">fingerprint</i>Control Modulo Usuario/persona</div>
+      <div class="collapsible-body"><p>
+				<a href="{{ url('/admin/usuario') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-users fa-2x" aria-hidden="true"></i>
+					Usuarios
+				</a>
+				<a href="{{ url('/admin/persona') }}" class="btn teal white-text waves-effect waves-light"><i class="fa fa-universal-access fa-2x" aria-hidden="true"></i>
+					Personas
+				</a>
+
+      </p></div>
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
@@ -155,13 +163,8 @@ function ocultar(){
 		        @if (count($persona)==0)
 		        	Aun no hay Persona Vinculada
 		        @else
-<!-- @if ($usuario->rol==1)
-{{$mid='admin'}}
-@elseif	($usuario->rol==2)
-{{$mid='encargado'}}
-@elseif	($usuario->rol==3)
-{{$mid='usuario'}}
-@endif -->
+
+<!-- {{$mid=mid()}} -->
 
 		        <script type="text/javascript">
 		        	function editarper(){
@@ -216,18 +219,6 @@ function ocultar(){
 
 
 
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-    
 
  
 
