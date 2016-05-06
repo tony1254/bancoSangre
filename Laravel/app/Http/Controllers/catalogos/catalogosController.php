@@ -40,32 +40,15 @@ class catalogosController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-   /**
-     *CATALOGOS
-     *1 sexo
-     *2 rol
-     */    
+  
 public function index($catalogo)
     {
-        if($catalogo=="sexo"){
-            $datos=CSexo::all();
-        }else if($catalogo=="rol"){
-            $datos=CRol::all();
-        }else {
-            return "index de else";
-        }
+       $datos=datosCatalogo($catalogo);
 $usuario=Auth::user();
-$mid='';
-if ($usuario->rol==1){
-$mid='admin';
-}elseif ($usuario->rol==2){
-$mid='encargado';
-}elseif ($usuario->rol==3){
-$mid='usuario';
-}        
+ $mid=mid();
+       
         return view('catalogos/index', ['datos' => $datos,'catalogo' => $catalogo,'usuario'=>$usuario,'mid'=>$mid]);
            
-            return $datos;
 
 
     }     
@@ -74,36 +57,39 @@ public function show($id)
         return "show";
 
     }  
-public function edit($id)
+public function edit($catalogo,$id)
     {
-        return "edit";
+     $datos=datoCatalogo($catalogo,$id);
+        return view('catalogos/edit', ['datos' => $datos,'catalogo' => $catalogo]);
+
 
     }  
-public function update()
+public function update($catalogo,$id, Request $request)
     {
-        return "update";
+        $datos=datoCatalogo($catalogo,$id);
+        $datos->nombre=$request->input('nombre');
+        $datos->save();
+        return redirect()->to(mid().'/catalogos/'.$catalogo);
+
 
     }  
 public function create($catalogo)
     {
 $usuario=Auth::user();
-$mid='';
-if ($usuario->rol==1){
-$mid='admin';
-}elseif ($usuario->rol==2){
-$mid='encargado';
-}elseif ($usuario->rol==3){
-$mid='usuario';
-}        
-$datos="";
-        return view('catalogos/create', ['datos' => $datos,'catalogo' => $catalogo,'usuario'=>$usuario,'mid'=>$mid]);
+       
+$mid=mid();
+        return view('catalogos/create', ['catalogo' => $catalogo,'usuario'=>$usuario,'mid'=>$mid]);
 
         
 
     }  
-public function store()
+public function store($catalogo, Request $request)
     {
-        return "create";
+        
+        $datos=nuevoCatalogo($catalogo);
+        $datos->nombre=$request->input('nombre');
+        $datos->save();
+        return redirect()->to(mid().'/catalogos/'.$catalogo);
 
     }  
 

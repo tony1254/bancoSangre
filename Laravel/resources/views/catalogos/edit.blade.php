@@ -2,14 +2,14 @@
 @section('title') {{'Catalogo de '.$catalogo.' Nuevo'}}@stop
 
 @section('content')
-<form class="form" role="form" method="POST" action="{{ url($mid.'/catalogos/'.$catalogo) }}">
+<form class="form" role="form" method="POST" action="{{ url(mid().'/catalogos/'.$catalogo.'/'.$datos->id.'/update') }}">
 	               {!! csrf_field() !!}
-<!-- <input type="text" name="_method" value="PUT" hidden> -->
+<input type="text" name="_method" value="PUT" hidden>
 <div class="panel panel-default"  id="ver">
-		        <div class="panel-heading">{{$catalogo}} NUEVO</div>
+		        <div class="panel-heading">{{$catalogo}} Modificando</div>
 		        	<div class="panel-body">
 					  <div class="input-field col s6">
-						<input type="text" name="nombre" id="nombre" >
+						<input type="text" name="nombre" value="{{$datos->nombre}}" >
 						<label class="active"  for="nombre">Nombre de {{$catalogo}}</label>
 				      </div> 
 			 		 </div>

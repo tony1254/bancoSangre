@@ -71,15 +71,7 @@ public function update($id,Request $request)
         $persona->sexo=$request->input('sexo');
         $persona->fechaNacimiento=$request->input('fechaNacimiento');
         $persona->save();
-        $mid='';
-if ($usuario->rol==1){
-$mid='admin';
-}elseif ($usuario->rol==2){
-$mid='encargado';
-}elseif ($usuario->rol==3){
-$mid='usuario';
-}
-
+        $mid=mid();
 
         return view('adminIndex', ['persona' => $persona,'rol' => $rol,'usuario'=>$usuario,'mid'=>$mid]);
     }      
@@ -95,14 +87,7 @@ public function edit($id)
          $usuario->name;
         $rol=CRol::find($usuario->rol)->nombre;
         $sexos=CSexo::all();
-$mid='';
-if ($usuario->rol==1){
-$mid='admin';
-}elseif ($usuario->rol==2){
-$mid='encargado';
-}elseif ($usuario->rol==3){
-$mid='usuario';
-}
+$mid=mid();
 
 
         return view('personas/editar', ['sexos' => $sexos,'rol' => $rol,'persona'=>$persona,'usuario'=>$usuario,'mid'=>$mid,'id'=>$id]);

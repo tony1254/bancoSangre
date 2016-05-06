@@ -55,14 +55,7 @@ public function edit($id)
          $usuario->name;
         $rol=CRol::find($usuario->rol)->nombre;
         $roles=CRol::all();
-$mid='';
-if ($usuario->rol==1){
-$mid='admin';
-}elseif ($usuario->rol==2){
-$mid='encargado';
-}elseif ($usuario->rol==3){
-$mid='usuario';
-}
+$mid=mid();
 
         return view('usuarios/editar', ['roles' => $roles,'rol' => $rol,'usuario'=>$usuario,'mid'=>$mid]);
 
@@ -75,15 +68,7 @@ public function show($id)
         $rol=CRol::find($usuario->rol)->nombre;
 
         $persona=Persona::where('cui','=',$usuario->cui)->first();
-$mid='';
-if ($usuario->rol==1){
-$mid='admin';
-}elseif ($usuario->rol==2){
-$mid='encargado';
-}elseif ($usuario->rol==3){
-$mid='usuario';
-}
-
+$mid=mid();
         return view('adminIndex', ['persona' => $persona,'rol' => $rol,'usuario'=>$usuario,'mid'=>$mid]);
     }             
 public function update(Request $request, $id)

@@ -8,7 +8,7 @@
 				          <input id="nombre" name="nombre" type="text" class="validate" value="{{$usuario->name}}" required
 				         pattern=".{0}|.{4,}" title="Debe contener un minimo de 4 caracteres" 
 				          >
-				          <label class="active"  for="nombree">Nombre de Usuario</label>
+				          <label class="active"  for="nombre">Nombre de Usuario</label>
 				      </div> 
 				      <div class="input-field col s6">
 				          <input  id="emaile" name="email" type="email" class="validate" value="{{$usuario->email}}" required>
