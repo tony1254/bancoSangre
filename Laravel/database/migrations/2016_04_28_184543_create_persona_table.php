@@ -23,6 +23,8 @@ class CreatePersonaTable extends Migration
             $table->string('telefono1')->default(0);
             $table->string('telefono2')->default(0);
             $table->string('email')->unique();
+            $table->integer('grupoSangre');
+            $table->integer('factorSangre');
 
             $table->timestamps();
         });

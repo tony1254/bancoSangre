@@ -95,7 +95,7 @@ function nuevoCatalogo($catalogo)
 /*FUNCION para devolver los datos del catalogo solicitado*/
 function datoCatalogo($catalogo,$id)
 {
-			 if($catalogo=="sexo"){
+		if($catalogo=="sexo"){
             $datos=CSexo::find($id);
         }else if($catalogo=="rol"){
             $datos=CRol::find($id);
@@ -117,4 +117,51 @@ function datoCatalogo($catalogo,$id)
             return "index de else";
         }
         return $datos;
+}
+/*REFERENCIA SNAGUINEA
+ Menos comunes: AB+ en un 3%, AB- 1%, el B+ en un 9% B- 2%, A- 6% y el O- 7% de la poblacion 
+
+Mas común: O+ en un 39% y A+ en un 33% 
+
+Mi tipo de sangre es A positivo. 
+
+Las personas "O" puede donar sangre no solo a O sino a: A, B y AB porque aunque este tiene anticuerpo contra los grupos A y B no es una proporcion para destruir al grupo, son dadores universales. 
+
+Las personas AB puede recibir no solo de AB sino de A,B y O, porque no tiene Anticuerpo contra estos grupos por tanto no los destruye, ellos son los receptores universales. 
+
+En cuanto al factor Rh, los positivos pueden recibir de los negativos pero los negativos solo de los negativos porque estos poseen anticuerpos contra el positivo.
+
+
+*/
+function tipoSangre($grupo,$factor){
+    $color='green';
+    
+    if($grupo==3 & $factor==2){//       AB-     1%
+    $color='green  darken-3';
+    }else if($grupo==2 && $factor==2)// B-      2%
+    {
+         $color='green ';
+    }else if($grupo==3 && $factor==1)// AB+     3%
+    {
+         $color='blue  darken-3';
+    }else if($grupo==1 && $factor==2)// A-      6%
+    {
+         $color='blue ';
+    }else if($grupo==4 && $factor==2)// O-      7%
+    {
+         $color='amber  darken-3';
+    }else if($grupo==2 && $factor==1)// B+      9%
+    {
+         $color='amber ';
+    }else if($grupo==1 && $factor==1)// A+      33%
+    {
+         $color='deep-orange  darken-3';
+    }else if($grupo==4 && $factor==1)// O+      39%
+    {
+         $color='deep-orange ';
+    }
+    $grupo=CGrupoSangre::find($grupo);
+    $factor=CFactorSangre::find($factor);
+    return  array('nombre' => $grupo->nombre.$factor->nombre,
+                 'color' => $color);
 }

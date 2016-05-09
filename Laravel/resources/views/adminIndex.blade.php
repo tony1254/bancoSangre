@@ -188,6 +188,10 @@ function ocultar(){
 					<b>Sexo:</b>
 					{{App\CSexo::find(($persona->sexo))->nombre}}
 					<br>
+					
+					<b>Tipo de Sangre:</b>
+					{{tipoSangre($persona->grupoSangre,$persona->factorSangre)['nombre']}}
+					<br>
 					<b>Vecindad:</b>
 					{{$persona->vecindad}}
 					<br>

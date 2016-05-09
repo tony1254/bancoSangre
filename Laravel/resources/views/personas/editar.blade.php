@@ -42,6 +42,37 @@
 				      	</div>
 				      
 					</div>
+                            <div class="input-field col s6">  
+                            
+                              <div class="col-xs-6">
+                                Tipo de Sangre:
+                              </div>
+                              <div class="col-xs-3">
+                                
+                          <select class="form-control" name="grupoSangre" id="grupoSangre">
+                          @foreach (App\CGrupoSangre::all() as $sexo)
+                            <option value="{{$sexo->id}}"
+								@if ($sexo->id==$persona->grupoSangre)
+									selected 
+								@endif
+                            >{{$sexo->nombre}}</option>
+                          @endforeach
+                          </select>
+                              </div>
+                              <div class="col-xs-3">
+                                
+                          <select class="form-control" name="factorSangre" id="factorSangre">
+                          @foreach (App\CFactorSangre::all() as $sexo)
+                            <option value="{{$sexo->id}}"
+                            	@if ($sexo->id==$persona->factorSangre)
+									selected 
+								@endif
+							>{{$sexo->nombre}}</option>
+                          @endforeach
+                          </select>
+                              </div>
+                            
+                        </div>					
 					<div class="input-field col s6">
 				          <input  id="vecindad" name="vecindad" type="text" class="validate" value="{{$persona->vecindad}}" required>
 				          <label class="active"  for="nombree">Vecindad</label>

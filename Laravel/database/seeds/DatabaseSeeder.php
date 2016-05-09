@@ -44,8 +44,9 @@ class DatabaseSeeder extends Seeder
         /*seed de sexos*/
          DB::table('c_sexo')->insert(['nombre' => 'Hombre']);
          DB::table('c_sexo')->insert(['nombre' => 'Mujer']);
+
         /*seed de Persona*/
-         DB::table('persona')->insert(['cui' => '2145800082214','nombre' => 'Luis Antonio','apellido' => 'Garcia Aguirre','sexo' => '1','fechaNacimiento' => '1992-09-23','telefono1' => '54820872','Vecindad' => ' San Benito Petén']);
+         DB::table('persona')->insert(['cui' => '2145800082214','nombre' => 'Luis Antonio','apellido' => 'Garcia Aguirre','sexo' => '1','fechaNacimiento' => '1992-09-23','telefono1' => '54820872','Vecindad' => ' San Benito Petén','factorSangre' => '1','grupoSangre' => '4']);
         /*seed de almacenes*/
          DB::table('c_almacen')->insert(['nombre' => 'almacen1']);
          DB::table('c_almacen')->insert(['nombre' => 'almacen2']);
@@ -65,9 +66,9 @@ class DatabaseSeeder extends Seeder
          DB::table('c_factorSangre')->insert(['nombre' => '+']);
          DB::table('c_factorSangre')->insert(['nombre' => '-']);
          /*seed de Tipo Afecciones*/
-         DB::table('c_factorSangre')->insert(['nombre' => 'Hepatitis']);
-         DB::table('c_factorSangre')->insert(['nombre' => 'Tatuaje']);
-         DB::table('c_factorSangre')->insert(['nombre' => 'Tatuaje']);
+         DB::table('c_tipoAfeccion')->insert(['nombre' => 'Hepatitis']);
+         DB::table('c_tipoAfeccion')->insert(['nombre' => 'Tatuaje']);
+         DB::table('c_tipoAfeccion')->insert(['nombre' => 'Tatuaje']);
 
     }
 }

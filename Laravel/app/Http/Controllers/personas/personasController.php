@@ -69,6 +69,8 @@ public function update($id,Request $request)
         $persona->cui=str_replace('-', '', $request->get('cui'));
         $persona->email=$request->input('email');
         $persona->sexo=$request->input('sexo');
+        $persona->grupoSangre=$request->input('grupoSangre');
+        $persona->factorSangre=$request->input('factorSangre');
         $persona->fechaNacimiento=$request->input('fechaNacimiento');
         $persona->save();
         $mid=mid();
@@ -113,7 +115,7 @@ $mid=mid();
     }
 public function create()
     {
-        return view('auth/register');
+        return 'error 404 No es aqui';
 
     }
 
